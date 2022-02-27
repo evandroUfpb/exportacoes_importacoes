@@ -1,5 +1,3 @@
-from json.tool import main
-import os
 import requests
 from urllib3.exceptions import InsecureRequestWarning
 
