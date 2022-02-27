@@ -1,9 +1,10 @@
-
-# importar as bibliotecas
 import pandas as pd
 import glob
 
-# funções para importar do diretório /data, os arquivos com as exportação e importação e fazer a concotenação
+# funções para ler os arquivos com os dados das exportações e importações
+# faz a concatenação das tabelas de exportação e imortações (2012 a 2021),
+# criando um data frama geral para exporação e outro para importação 
+
 
 list_col = ['CO_ANO','CO_MES','CO_NCM','CO_PAIS','SG_UF_NCM','CO_VIA','VL_FOB']
 
@@ -11,7 +12,7 @@ def exportacoes():
     exportacoes = glob.glob('data/EXP*.csv')
     array_exp = []
     for x in exportacoes:
-        temp_exp = pd.read_csv(x, sep=';' usecols=list_col)
+        temp_exp = pd.read_csv(x, sep=';', usecols=list_col)
         array_exp.append(temp_exp)
     return pd.concat(array_exp, axis=0)    
 
@@ -24,7 +25,7 @@ def importacoes():
     return pd.concat(array_imp, axis=0) 
     
 
-# Importações das tabelas necessarias para cruzamento com os dados de exportações e importações
+# Cria os data frames necessários para cruzamento com os dados de exportações e importações
 def paises():
     url_paises = 'https://balanca.economia.gov.br/balanca/bd/tabelas/PAIS.csv'
     paises = pd.read_csv(url_paises, sep=';', encoding='iso-8859-1', index_col='CO_PAIS', usecols=['CO_PAIS', 'NO_PAIS', 'CO_PAIS_ISOA3'])
