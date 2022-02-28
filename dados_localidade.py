@@ -1,6 +1,13 @@
 import pandas as pd
 import glob
 
+import os, ssl
+from tkinter.font import names
+if (not os.environ.get('PYTHONHTTPSVERIFY', '') and
+getattr(ssl, '_create_unverified_context', None)):
+    ssl._create_default_https_context = ssl._create_unverified_context
+
+
 # funções para ler os arquivos com os dados das exportações e importações
 # faz a concatenação das tabelas de exportação e imortações (2012 a 2021),
 # criando um data frama geral para exporação e outro para importação 
@@ -9,7 +16,7 @@ import glob
 list_col = ['CO_ANO','CO_MES','CO_NCM','CO_PAIS','SG_UF_NCM','CO_VIA','VL_FOB']
 
 def exportacoes():
-    exportacoes = glob.glob('data/EXP*.csv')
+    exportacoes = glob.glob('dados/EXP*.csv')
     array_exp = []
     for x in exportacoes:
         temp_exp = pd.read_csv(x, sep=';', usecols=list_col)
@@ -17,7 +24,7 @@ def exportacoes():
     return pd.concat(array_exp, axis=0)    
 
 def importacoes():
-    importacoes = glob.glob('data/IMP*.csv')
+    importacoes = glob.glob('dados/IMP*.csv')
     array_imp = []
     for x in importacoes:
         temp_imp = pd.read_csv(x, sep=';', usecols=list_col)
