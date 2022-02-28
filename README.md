@@ -13,6 +13,7 @@ Trata-se de um exercício de Análise Exploratória de Dados. O objetivo é apre
 ### Introdução
 
 * Criar a pasta dados (ex. mkdir dados)
+* Criar uma pasta para os gráficos (ex. mkdir grafico)
 * executar o arquivo download_data.py (ex. python download_data.py)
 --- Esta ação deve baixar os arquivos com os dados das exportações e importaçõs para a pasta dados (ex. EXP_2012.csv ...)
 
