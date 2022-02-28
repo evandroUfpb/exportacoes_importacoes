@@ -1,4 +1,4 @@
-# exportacoes_importacoes
+# Exportacoes e Importacoes no Brasil, Nordeste e Paraíba
 Trata-se de um exercício de Análise Exploratória de Dados. O objetivo é apresentar gráfica e tabelas com informações sobre as exportações e importações do Brasil, Nordeste e Paraíba, para o período de 2012 a 2021.
 
 ### Bibliotacas utilizadas/requisitadas
